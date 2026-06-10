@@ -1,77 +1,357 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Unblocked Games Hub</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poko — Unblocked Games</title>
     <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            background: #0d0d2b;
-            color: white;
-            padding: 20px;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1 { font-size: 42px; margin-top: 50px; }
-        .big-btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #00ffcc, #0066ff);
-            color: #0d0d2b;
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
             font-size: 28px;
             font-weight: bold;
-            padding: 20px 40px;
-            margin: 40px auto;
-            border-radius: 60px;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo span {
+            font-size: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #ddd;
             text-decoration: none;
-            transition: transform 0.2s;
+            transition: 0.3s;
         }
-        .big-btn:hover {
-            transform: scale(1.05);
+
+        .nav-links a:hover {
+            color: #feca57;
         }
-        .feature-grid {
+
+        /* Search Bar */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 20px 20px;
+        }
+
+        .search-box {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 60px;
+            padding: 5px 5px 5px 20px;
+            width: 100%;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            color: white;
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-box button {
+            background: #feca57;
+            border: none;
+            border-radius: 60px;
+            padding: 10px 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #ff9f43;
+            transform: scale(1.02);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Category Section */
+        .category {
+            padding: 20px 40px;
+        }
+
+        .category h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            display: inline-block;
+            border-left: 4px solid #feca57;
+            padding-left: 15px;
+        }
+
+        .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 20px;
-            max-width: 1000px;
-            margin: 50px auto;
+            margin-top: 15px;
         }
-        .feature {
-            background: #1a1a3e;
-            padding: 20px;
-            border-radius: 15px;
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
         }
-        .feature h3 { color: #00ffcc; }
-        .footer {
-            margin-top: 50px;
-            padding: 20px;
-            color: #666;
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #feca57;
+        }
+
+        .game-icon {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .game-card h3 {
+            font-size: 16px;
+            margin: 10px 0 5px;
+        }
+
+        .game-card p {
             font-size: 12px;
+            color: #aaa;
+        }
+
+        .game-card a {
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .category {
+                padding: 20px;
+            }
+            .game-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
-    <h1>🎮 Unblocked Games Hub</h1>
-    <p>Play at school — no blocks, no downloads</p>
-    
-    <a href="games.html" class="big-btn">🔥 PLAY 100+ GAMES NOW 🔥</a>
-    
-    <div class="feature-grid">
-        <div class="feature">
-            <h3>🎯 100+ Games</h3>
-            <p>Action, puzzle, racing, horror, and multiplayer</p>
+
+    <div class="navbar">
+        <div class="logo">
+            <span>🎮</span> Poko
         </div>
-        <div class="feature">
-            <h3>👥 Play with Friends</h3>
-            <p>Multiplayer .io games included</p>
-        </div>
-        <div class="feature">
-            <h3>⚡ Instant Play</h3>
-            <p>No downloads, no accounts needed</p>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="games.html">All Games</a>
+            <a href="#">New</a>
+            <a href="#">Multiplayer</a>
         </div>
     </div>
-    
+
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search games... (Snake, Tetris, Bloxd...)" onkeyup="searchGames()">
+            <button onclick="searchGames()">🔍 Search</button>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>🚀 Play Unblocked Games at School</h1>
+        <p>Poko has 150+ free games — no downloads, no blocks, no bullsh*t. Just click and play.</p>
+    </div>
+
+    <!-- Featured Games -->
+    <div class="category">
+        <h2>✨ Picked For You</h2>
+        <div class="game-grid" id="featuredGrid">
+            <!-- Featured games will load here -->
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>🔥 Most Played This Week</h2>
+        <div class="game-grid" id="popularGrid">
+            <!-- Popular games will load here -->
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>🎯 All Games</h2>
+        <div class="game-grid" id="allGamesGrid">
+            <!-- All games will load here -->
+        </div>
+    </div>
+
     <div class="footer">
-        Bookmark this page 🔥 | New games added weekly
+        <p>Poko — made by a kid who was bored in class. No ads, no signups, just games. 🤙</p>
+        <p style="margin-top: 10px;">© 2026 Poko • Bookmark this joint</p>
     </div>
+
+    <script>
+        // Game database with name, icon, URL, category
+        const games = [
+            { name: "Bloxd.io", icon: "🧱", url: "https://bloxd.io", category: "multiplayer", popular: true, featured: true },
+            { name: "1v1.LOL", icon: "🏗️", url: "https://1v1.lol", category: "multiplayer", popular: true, featured: true },
+            { name: "Krunker.io", icon: "🔫", url: "https://krunker.io", category: "multiplayer", popular: true, featured: false },
+            { name: "Shell Shockers", icon: "🥚", url: "https://shellshockers.io", category: "multiplayer", popular: true, featured: false },
+            { name: "Skribbl.io", icon: "🎨", url: "https://skribbl.io", category: "multiplayer", popular: false, featured: false },
+            { name: "Surviv.io", icon: "🏝️", url: "https://surviv.io", category: "multiplayer", popular: true, featured: false },
+            { name: "Slither.io", icon: "🐍", url: "https://slither.io", category: "multiplayer", popular: true, featured: false },
+            { name: "Agar.io", icon: "🔴", url: "https://agar.io", category: "multiplayer", popular: true, featured: false },
+            { name: "Paper.io 2", icon: "📄", url: "https://paper.io", category: "multiplayer", popular: false, featured: false },
+            { name: "Snake", icon: "🐍", url: "https://www.crazygames.com/game/snake", category: "classic", popular: true, featured: true },
+            { name: "Tetris", icon: "🧩", url: "https://www.crazygames.com/game/tetris", category: "classic", popular: true, featured: true },
+            { name: "Pacman", icon: "👾", url: "https://www.crazygames.com/game/pacman", category: "classic", popular: true, featured: true },
+            { name: "Space Invaders", icon: "👽", url: "https://www.crazygames.com/game/space-invaders", category: "classic", popular: false, featured: false },
+            { name: "Frogger", icon: "🐸", url: "https://www.crazygames.com/game/frogger", category: "classic", popular: false, featured: false },
+            { name: "Breakout", icon: "🧱", url: "https://www.crazygames.com/game/breakout", category: "classic", popular: false, featured: false },
+            { name: "Minesweeper", icon: "💣", url: "https://www.crazygames.com/game/minesweeper", category: "classic", popular: false, featured: false },
+            { name: "2048", icon: "🔢", url: "https://www.crazygames.com/game/2048", category: "classic", popular: true, featured: false },
+            { name: "Flappy Bird", icon: "🐦", url: "https://www.crazygames.com/game/flappy-bird", category: "classic", popular: true, featured: false },
+            { name: "Vex 7", icon: "⚡", url: "https://www.crazygames.com/game/vex-7", category: "action", popular: true, featured: true },
+            { name: "Moto X3M", icon: "🏍️", url: "https://www.crazygames.com/game/moto-x3m", category: "action", popular: true, featured: false },
+            { name: "Run 3", icon: "🏃", url: "https://www.crazygames.com/game/run-3", category: "action", popular: true, featured: false },
+            { name: "Temple Run 2", icon: "🏯", url: "https://www.crazygames.com/game/temple-run-2", category: "action", popular: true, featured: false },
+            { name: "Subway Surfers", icon: "🚇", url: "https://www.crazygames.com/game/subway-surfers", category: "action", popular: true, featured: false },
+            { name: "Happy Wheels", icon: "🛞", url: "https://www.crazygames.com/game/happy-wheels", category: "action", popular: true, featured: false },
+            { name: "Drift Hunters", icon: "💨", url: "https://www.crazygames.com/game/drift-hunters", category: "racing", popular: false, featured: false },
+            { name: "Madalin Stunt Cars", icon: "🚗", url: "https://www.crazygames.com/game/madalin-stunt-cars", category: "racing", popular: false, featured: false },
+            { name: "Head Soccer", icon: "⚽", url: "https://www.crazygames.com/game/head-soccer", category: "sports", popular: false, featured: false },
+            { name: "Basketball FRVR", icon: "🏀", url: "https://www.crazygames.com/game/basketball-frvr", category: "sports", popular: false, featured: false },
+            { name: "Granny", icon: "👵", url: "https://www.crazygames.com/game/granny", category: "horror", popular: true, featured: false },
+            { name: "Five Nights at Freddy's", icon: "🐻", url: "https://www.crazygames.com/game/five-nights-at-freddys", category: "horror", popular: true, featured: false },
+            { name: "Bloons TD", icon: "🎈", url: "https://www.crazygames.com/game/bloons-tower-defense", category: "puzzle", popular: false, featured: false },
+            { name: "Fireboy and Watergirl", icon: "🔥💧", url: "https://fireboy-and-watergirl.com", category: "multiplayer", popular: true, featured: true },
+            { name: "Getaway Shootout", icon: "🏃", url: "https://getaway-shootout.com", category: "multiplayer", popular: true, featured: false },
+            { name: "Rooftop Snipers", icon: "🔫", url: "https://rooftop-snipers.com", category: "multiplayer", popular: true, featured: false },
+            { name: "Basketball Stars", icon: "🏀", url: "https://basketball-stars.io", category: "multiplayer", popular: false, featured: false },
+            { name: "Poket52", icon: "🎮", url: "https://poket52.com", category: "portal", popular: true, featured: true },
+            { name: "GamH5", icon: "🎮", url: "https://gamh5.com", category: "portal", popular: true, featured: true },
+            { name: "Itch.io", icon: "🎮", url: "https://itch.io/games/html5/free", category: "portal", popular: true, featured: false }
+        ];
+
+        function renderGameCards(gameArray, containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            container.innerHTML = "";
+            gameArray.forEach(game => {
+                const card = document.createElement("div");
+                card.className = "game-card";
+                card.innerHTML = `
+                    <a href="${game.url}" target="_blank">
+                        <div class="game-icon">${game.icon}</div>
+                        <h3>${game.name}</h3>
+                        <p>Click to play ▶️</p>
+                    </a>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function searchGames() {
+            const input = document.getElementById("searchInput");
+            const searchTerm = input.value.toLowerCase();
+            
+            if (searchTerm === "") {
+                renderGameCards(games.filter(g => g.featured === true), "featuredGrid");
+                renderGameCards(games.filter(g => g.popular === true), "popularGrid");
+                renderGameCards(games, "allGamesGrid");
+                return;
+            }
+            
+            const filtered = games.filter(game => game.name.toLowerCase().includes(searchTerm));
+            renderGameCards(filtered, "allGamesGrid");
+            
+            // Clear the other grids when searching
+            document.getElementById("featuredGrid").innerHTML = "";
+            document.getElementById("popularGrid").innerHTML = "";
+            
+            if (filtered.length === 0) {
+                document.getElementById("allGamesGrid").innerHTML = "<p style='grid-column:1/-1; text-align:center;'>No games found. Try 'snake' or 'bloxd' 🤙</p>";
+            }
+        }
+
+        // Load all games on page load
+        renderGameCards(games.filter(g => g.featured === true), "featuredGrid");
+        renderGameCards(games.filter(g => g.popular === true), "popularGrid");
+        renderGameCards(games, "allGamesGrid");
+    </script>
 </body>
-</html>
+    </html>
