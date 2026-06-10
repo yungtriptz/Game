@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Unblocked Games</title>
+    <title>Unblocked Games Hub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -12,63 +12,66 @@
             padding: 20px;
             margin: 0;
         }
-        h1 { font-size: 32px; }
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 10px;
-        }
-        .game-card {
-            background: #1a1a3e;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid #333;
-        }
-        .game-card a {
-            color: #00ffcc;
-            text-decoration: none;
-            font-size: 18px;
+        h1 { font-size: 42px; margin-top: 50px; }
+        .big-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #00ffcc, #0066ff);
+            color: #0d0d2b;
+            font-size: 28px;
             font-weight: bold;
-            display: block;
+            padding: 20px 40px;
+            margin: 40px auto;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: transform 0.2s;
         }
-        .game-card p {
-            color: #aaa;
+        .big-btn:hover {
+            transform: scale(1.05);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+        .feature {
+            background: #1a1a3e;
+            padding: 20px;
+            border-radius: 15px;
+        }
+        .feature h3 { color: #00ffcc; }
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
             font-size: 12px;
-            margin-top: 8px;
         }
     </style>
 </head>
 <body>
-    <h1>🎮 Unblocked Games</h1>
-    <p>Play at school — no blocks</p>
-    <div class="game-grid">
-        <div class="game-card">
-            <a href="game1.html">🐍 Snake</a>
-            <p>Classic snake game</p>
+    <h1>🎮 Unblocked Games Hub</h1>
+    <p>Play at school — no blocks, no downloads</p>
+    
+    <a href="games.html" class="big-btn">🔥 PLAY 100+ GAMES NOW 🔥</a>
+    
+    <div class="feature-grid">
+        <div class="feature">
+            <h3>🎯 100+ Games</h3>
+            <p>Action, puzzle, racing, horror, and multiplayer</p>
         </div>
-        <div class="game-card">
-            <a href="game2.html">🧩 Tetris</a>
-            <p>Stack the blocks</p>
+        <div class="feature">
+            <h3>👥 Play with Friends</h3>
+            <p>Multiplayer .io games included</p>
         </div>
-        <div class="game-card">
-            <a href="game3.html">👾 Pacman</a>
-            <p>Eat the dots</p>
+        <div class="feature">
+            <h3>⚡ Instant Play</h3>
+            <p>No downloads, no accounts needed</p>
         </div>
-        <div class="game-card">
-            <a href="game4.html">👽 Space Invaders</a>
-            <p>Defend Earth</p>
-        </div>
-        <div class="game-card">
-            <a href="game5.html">🐸 Frogger</a>
-            <p>Cross the road</p>
-        </div>
-        <div class="game-card">
-            <a href="game6.html">🧱 Breakout</a>
-            <p>Break the bricks</p>
-        </div>
+    </div>
+    
+    <div class="footer">
+        Bookmark this page 🔥 | New games added weekly
     </div>
 </body>
 </html>
