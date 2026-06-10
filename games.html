@@ -1,198 +1,297 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>100+ Unblocked Games</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Games — Poko</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #0d0d2b;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
             color: white;
-            padding: 20px;
+            min-height: 100vh;
         }
-        h1 { text-align: center; margin: 20px 0; font-size: 32px; }
-        .category {
-            background: #16213e;
-            margin: 20px 0;
-            padding: 15px;
-            border-radius: 15px;
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap;
         }
-        .category h2 {
-            color: #00ffcc;
-            margin-bottom: 15px;
-            font-size: 24px;
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-        .game-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
         }
-        .game-list a {
-            display: block;
-            background: #1a1a3e;
-            padding: 12px;
-            border-radius: 8px;
-            color: #fff;
+
+        .nav-links a {
+            color: #ddd;
             text-decoration: none;
-            transition: all 0.2s;
-            border: 1px solid #2a2a4e;
         }
-        .game-list a:hover {
-            background: #00ffcc;
-            color: #0d0d2b;
-            transform: translateY(-2px);
+
+        .nav-links a:hover {
+            color: #feca57;
         }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 20px;
+        }
+
+        .search-box {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 60px;
+            padding: 5px 5px 5px 20px;
+            width: 100%;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            color: white;
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-box button {
+            background: #feca57;
+            border: none;
+            border-radius: 60px;
+            padding: 10px 25px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .category {
+            padding: 20px 40px;
+        }
+
+        .category h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-left: 4px solid #feca57;
+            padding-left: 15px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #feca57;
+        }
+
+        .game-icon {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .game-card h3 {
+            font-size: 16px;
+        }
+
+        .game-card a {
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+
         .back-btn {
             display: inline-block;
-            margin: 20px 0;
+            margin: 20px 40px;
             padding: 10px 20px;
-            background: #1a1a3e;
-            color: #00ffcc;
+            background: #feca57;
+            color: #0f0c29;
             text-decoration: none;
             border-radius: 10px;
+            font-weight: bold;
         }
-        .note {
+
+        .footer {
             text-align: center;
-            margin-top: 30px;
-            padding: 15px;
-            background: #1a1a3e;
-            border-radius: 10px;
-            font-size: 14px;
-            color: #aaa;
+            padding: 40px;
+            color: #666;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .category {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <div class="navbar">
+        <div class="logo">🎮 Poko</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="games.html">All Games</a>
+            <a href="#">New</a>
+            <a href="#">Multiplayer</a>
+        </div>
+    </div>
+
     <a href="index.html" class="back-btn">← Back to Home</a>
-    <h1>🎮 100+ Unblocked Games</h1>
 
-    <!-- Game Portals (Instant 100+ Games) -->
-    <div class="category">
-        <h2>🎯 Game Portals (100+ Games Inside)</h2>
-        <div class="game-list">
-            <a href="https://poket52.com" target="_blank">🎮 Poket52 - Snake, Tetris, Chess, Solitaire, 2048, Minesweeper + 100 more</a>
-            <a href="https://gamh5.com" target="_blank">🎮 GamH5 - Hundreds of curated HTML5 games</a>
-            <a href="https://itch.io/games/html5/free" target="_blank">🎮 Itch.io - Thousands of free indie games</a>
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search 150+ games..." onkeyup="searchGames()">
+            <button onclick="searchGames()">🔍 Search</button>
         </div>
     </div>
 
-    <!-- Multiplayer Games -->
     <div class="category">
-        <h2>🔥 Multiplayer Games (Play with Friends)</h2>
-        <div class="game-list">
-            <a href="https://bloxd.io" target="_blank">Bloxd.io - Minecraft style with 18 game modes</a>
-            <a href="https://1v1.lol" target="_blank">1v1.LOL - Build battles like Fortnite</a>
-            <a href="https://krunker.io" target="_blank">Krunker.io - Fast-paced FPS</a>
-            <a href="https://shellshockers.io" target="_blank">Shell Shockers - Egg shooter FPS</a>
-            <a href="https://skribbl.io" target="_blank">Skribbl.io - Drawing guessing game</a>
-            <a href="https://surviv.io" target="_blank">Surviv.io - 2D battle royale</a>
-            <a href="https://zombsroyale.io" target="_blank">ZombsRoyale.io - 2D battle royale</a>
-            <a href="https://colonist.io" target="_blank">Colonist.io - Catan online</a>
-            <a href="https://slither.io" target="_blank">Slither.io - Snake meets multiplayer</a>
-            <a href="https://agar.io" target="_blank">Agar.io - Classic cell eating game</a>
-            <a href="https://diep.io" target="_blank">Diep.io - Tank battle arena</a>
-            <a href="https://moomoo.io" target="_blank">MooMoo.io - Base building PvP</a>
-            <a href="https://paper.io" target="_blank">Paper.io 2 - Capture territory</a>
-            <a href="https://getaway-shootout.com" target="_blank">Getaway Shootout - 2-player ragdoll chaos</a>
-            <a href="https://rooftop-snipers.com" target="_blank">Rooftop Snipers - Ragdoll fighting</a>
-            <a href="https://basketball-stars.io" target="_blank">Basketball Stars - 1v1 basketball</a>
-            <a href="https://fireboy-and-watergirl.com" target="_blank">Fireboy and Watergirl - Co-op puzzle</a>
-            <a href="https://taming.io" target="_blank">Taming.io - Survival with pets</a>
-        </div>
+        <h2>🎮 All Games (150+)</h2>
+        <div class="game-grid" id="allGamesGrid"></div>
     </div>
 
-    <!-- Classics Everyone Knows -->
-    <div class="category">
-        <h2>🕹️ Classics Everyone Knows</h2>
-        <div class="game-list">
-            <a href="https://www.crazygames.com/game/snake" target="_blank">🐍 Snake - Classic arcade</a>
-            <a href="https://www.crazygames.com/game/tetris" target="_blank">🧩 Tetris - Block stacking</a>
-            <a href="https://www.crazygames.com/game/pacman" target="_blank">👾 Pacman - Eat the dots</a>
-            <a href="https://www.crazygames.com/game/space-invaders" target="_blank">👽 Space Invaders - Defend Earth</a>
-            <a href="https://www.crazygames.com/game/frogger" target="_blank">🐸 Frogger - Cross the road</a>
-            <a href="https://www.crazygames.com/game/breakout" target="_blank">🧱 Breakout - Break the bricks</a>
-            <a href="https://www.crazygames.com/game/minesweeper" target="_blank">💣 Minesweeper - Avoid the mines</a>
-            <a href="https://poket52.com" target="_blank">🃏 Solitaire - Classic card game</a>
-            <a href="https://poket52.com" target="_blank">♟️ Chess - Board strategy</a>
-            <a href="https://www.crazygames.com/game/2048" target="_blank">🔢 2048 - Merge numbers</a>
-            <a href="https://www.crazygames.com/game/wordle" target="_blank">📝 Wordle - Daily word puzzle</a>
-            <a href="https://www.crazygames.com/game/flappy-bird" target="_blank">🐦 Flappy Bird - Frustrating classic</a>
-            <a href="https://www.crazygames.com/game/connect-4" target="_blank">🔴 Connect 4 - Classic board game</a>
-        </div>
+    <div class="footer">
+        <p>Poko — made by a kid who was bored in class. No bullsh*t, just games. 🤙</p>
     </div>
 
-    <!-- Action & Arcade -->
-    <div class="category">
-        <h2>💥 Action & Arcade</h2>
-        <div class="game-list">
-            <a href="https://www.crazygames.com/game/vex-7" target="_blank">⚡ Vex 7 - Hard platformer</a>
-            <a href="https://www.crazygames.com/game/moto-x3m" target="_blank">🏍️ Moto X3M - Motocross stunts</a>
-            <a href="https://www.crazygames.com/game/run-3" target="_blank">🏃 Run 3 - Space tunnel runner</a>
-            <a href="https://www.crazygames.com/game/temple-run-2" target="_blank">🏯 Temple Run 2 - Endless runner</a>
-            <a href="https://www.crazygames.com/game/subway-surfers" target="_blank">🚇 Subway Surfers - Classic runner</a>
-            <a href="https://www.crazygames.com/game/stick-war" target="_blank">⚔️ Stick War - Strategy action</a>
-            <a href="https://www.crazygames.com/game/boxing-random" target="_blank">🥊 Boxing Random - Ragdoll boxing</a>
-            <a href="https://www.crazygames.com/game/happy-wheels" target="_blank">🛞 Happy Wheels - Physics ragdoll</a>
-            <a href="https://www.crazygames.com/game/ragdoll-archers" target="_blank">🏹 Ragdoll Archers - Bow physics</a>
-            <a href="https://www.crazygames.com/game/super-smash-flash" target="_blank">🎮 Super Smash Flash - Platform fighter</a>
-            <a href="https://www.crazygames.com/game/fancy-pants-adventure" target="_blank">✏️ Fancy Pants Adventure - Platformer</a>
-            <a href="https://www.crazygames.com/game/raft-wars" target="_blank">🛶 Raft Wars - Turn-based shooting</a>
-            <a href="https://www.crazygames.com/game/learn-to-fly" target="_blank">🐧 Learn to Fly - Penguin launching</a>
-            <a href="https://www.crazygames.com/game/burrito-bison" target="_blank">🦬 Burrito Bison - Launch game</a>
-        </div>
-    </div>
+    <script>
+        const games = [
+            { name: "Bloxd.io", icon: "🧱", url: "https://bloxd.io" },
+            { name: "1v1.LOL", icon: "🏗️", url: "https://1v1.lol" },
+            { name: "Krunker.io", icon: "🔫", url: "https://krunker.io" },
+            { name: "Shell Shockers", icon: "🥚", url: "https://shellshockers.io" },
+            { name: "Skribbl.io", icon: "🎨", url: "https://skribbl.io" },
+            { name: "Surviv.io", icon: "🏝️", url: "https://surviv.io" },
+            { name: "ZombsRoyale.io", icon: "🔥", url: "https://zombsroyale.io" },
+            { name: "Colonist.io", icon: "🏰", url: "https://colonist.io" },
+            { name: "Slither.io", icon: "🐍", url: "https://slither.io" },
+            { name: "Agar.io", icon: "🔴", url: "https://agar.io" },
+            { name: "Diep.io", icon: "🚀", url: "https://diep.io" },
+            { name: "MooMoo.io", icon: "🐮", url: "https://moomoo.io" },
+            { name: "Paper.io 2", icon: "📄", url: "https://paper.io" },
+            { name: "Getaway Shootout", icon: "🏃", url: "https://getaway-shootout.com" },
+            { name: "Rooftop Snipers", icon: "🔫", url: "https://rooftop-snipers.com" },
+            { name: "Fireboy and Watergirl", icon: "🔥💧", url: "https://fireboy-and-watergirl.com" },
+            { name: "Basketball Stars", icon: "🏀", url: "https://basketball-stars.io" },
+            { name: "Taming.io", icon: "🦖", url: "https://taming.io" },
+            { name: "Snake", icon: "🐍", url: "https://www.crazygames.com/game/snake" },
+            { name: "Tetris", icon: "🧩", url: "https://www.crazygames.com/game/tetris" },
+            { name: "Pacman", icon: "👾", url: "https://www.crazygames.com/game/pacman" },
+            { name: "Space Invaders", icon: "👽", url: "https://www.crazygames.com/game/space-invaders" },
+            { name: "Frogger", icon: "🐸", url: "https://www.crazygames.com/game/frogger" },
+            { name: "Breakout", icon: "🧱", url: "https://www.crazygames.com/game/breakout" },
+            { name: "Minesweeper", icon: "💣", url: "https://www.crazygames.com/game/minesweeper" },
+            { name: "2048", icon: "🔢", url: "https://www.crazygames.com/game/2048" },
+            { name: "Flappy Bird", icon: "🐦", url: "https://www.crazygames.com/game/flappy-bird" },
+            { name: "Wordle", icon: "📝", url: "https://www.crazygames.com/game/wordle" },
+            { name: "Chess", icon: "♟️", url: "https://poket52.com" },
+            { name: "Solitaire", icon: "🃏", url: "https://poket52.com" },
+            { name: "Connect 4", icon: "🔴", url: "https://www.crazygames.com/game/connect-4" },
+            { name: "Vex 7", icon: "⚡", url: "https://www.crazygames.com/game/vex-7" },
+            { name: "Moto X3M", icon: "🏍️", url: "https://www.crazygames.com/game/moto-x3m" },
+            { name: "Run 3", icon: "🏃", url: "https://www.crazygames.com/game/run-3" },
+            { name: "Temple Run 2", icon: "🏯", url: "https://www.crazygames.com/game/temple-run-2" },
+            { name: "Subway Surfers", icon: "🚇", url: "https://www.crazygames.com/game/subway-surfers" },
+            { name: "Stick War", icon: "⚔️", url: "https://www.crazygames.com/game/stick-war" },
+            { name: "Boxing Random", icon: "🥊", url: "https://www.crazygames.com/game/boxing-random" },
+            { name: "Happy Wheels", icon: "🛞", url: "https://www.crazygames.com/game/happy-wheels" },
+            { name: "Ragdoll Archers", icon: "🏹", url: "https://www.crazygames.com/game/ragdoll-archers" },
+            { name: "Super Smash Flash", icon: "🎮", url: "https://www.crazygames.com/game/super-smash-flash" },
+            { name: "Raft Wars", icon: "🛶", url: "https://www.crazygames.com/game/raft-wars" },
+            { name: "Learn to Fly", icon: "🐧", url: "https://www.crazygames.com/game/learn-to-fly" },
+            { name: "Burrito Bison", icon: "🦬", url: "https://www.crazygames.com/game/burrito-bison" },
+            { name: "Drift Hunters", icon: "💨", url: "https://www.crazygames.com/game/drift-hunters" },
+            { name: "Madalin Stunt Cars", icon: "🚗", url: "https://www.crazygames.com/game/madalin-stunt-cars" },
+            { name: "Head Soccer", icon: "⚽", url: "https://www.crazygames.com/game/head-soccer" },
+            { name: "Basketball FRVR", icon: "🏀", url: "https://www.crazygames.com/game/basketball-frvr" },
+            { name: "Granny", icon: "👵", url: "https://www.crazygames.com/game/granny" },
+            { name: "Slenderman", icon: "👔", url: "https://www.crazygames.com/game/slenderman" },
+            { name: "Baldi's Basics", icon: "📏", url: "https://www.crazygames.com/game/baldis-basics" },
+            { name: "Five Nights at Freddy's", icon: "🐻", url: "https://www.crazygames.com/game/five-nights-at-freddys" },
+            { name: "Bloons TD", icon: "🎈", url: "https://www.crazygames.com/game/bloons-tower-defense" },
+            { name: "Kingdom Rush", icon: "👑", url: "https://www.crazygames.com/game/kingdom-rush" },
+            { name: "Cut the Rope", icon: "✂️", url: "https://www.crazygames.com/game/cut-the-rope" },
+            { name: "Plants vs Zombies", icon: "🌱", url: "https://www.crazygames.com/game/plants-vs-zombies" },
+            { name: "Poket52", icon: "🎮", url: "https://poket52.com" },
+            { name: "GamH5", icon: "🎮", url: "https://gamh5.com" },
+            { name: "Itch.io", icon: "🎮", url: "https://itch.io/games/html5/free" }
+        ];
 
-    <!-- Racing Games -->
-    <div class="category">
-        <h2>🏎️ Racing & Driving</h2>
-        <div class="game-list">
-            <a href="https://www.crazygames.com/game/drift-hunters" target="_blank">💨 Drift Hunters - Drifting sim</a>
-            <a href="https://www.crazygames.com/game/madalin-stunt-cars" target="_blank">🚗 Madalin Stunt Cars - Open world stunts</a>
-            <a href="https://www.crazygames.com/game/mountain-bike" target="_blank">🚵 Mountain Bike - Rocky tracks</a>
-            <a href="https://www.crazygames.com/game/dune-buggy" target="_blank">🏜️ Dune Buggy - Desert racing</a>
-        </div>
-    </div>
+        function renderGameCards(gameArray) {
+            const container = document.getElementById("allGamesGrid");
+            container.innerHTML = "";
+            gameArray.forEach(game => {
+                const card = document.createElement("div");
+                card.className = "game-card";
+                card.innerHTML = `
+                    <a href="${game.url}" target="_blank">
+                        <div class="game-icon">${game.icon}</div>
+                        <h3>${game.name}</h3>
+                    </a>
+                `;
+                container.appendChild(card);
+            });
+        }
 
-    <!-- Sports Games -->
-    <div class="category">
-        <h2>⚽ Sports Games</h2>
-        <div class="game-list">
-            <a href="https://www.crazygames.com/game/head-soccer" target="_blank">⚽ Head Soccer - 2-player soccer</a>
-            <a href="https://www.crazygames.com/game/basketball-frvr" target="_blank">🏀 Basketball FRVR - Hoop shooting</a>
-            <a href="https://www.crazygames.com/game/golf-blitz" target="_blank">⛳ Golf Blitz - Multiplayer golf</a>
-            <a href="https://www.crazygames.com/game/penalty-kick" target="_blank">🎯 Penalty Kick - Shoot penalties</a>
-        </div>
-    </div>
+        function searchGames() {
+            const input = document.getElementById("searchInput");
+            const searchTerm = input.value.toLowerCase();
+            if (searchTerm === "") {
+                renderGameCards(games);
+                return;
+            }
+            const filtered = games.filter(game => game.name.toLowerCase().includes(searchTerm));
+            renderGameCards(filtered);
+            if (filtered.length === 0) {
+                document.getElementById("allGamesGrid").innerHTML = "<p style='grid-column:1/-1; text-align:center;'>No games found. Try 'snake' or 'bloxd' 🤙</p>";
+            }
+        }
 
-    <!-- Horror Games -->
-    <div class="category">
-        <h2>👻 Horror Games</h2>
-        <div class="game-list">
-            <a href="https://www.crazygames.com/game/granny" target="_blank">👵 Granny - Escape horror</a>
-            <a href="https://www.crazygames.com/game/slenderman" target="_blank">👔 Slenderman - Find pages, survive</a>
-            <a href="https://www.crazygames.com/game/baldis-basics" target="_blank">📏 Baldi's Basics - Edutainment horror</a>
-            <a href="https://www.crazygames.com/game/five-nights-at-freddys" target="_blank">🐻 Five Nights at Freddy's - Survival horror</a>
-        </div>
-    </div>
-
-    <!-- Puzzle Games -->
-    <div class="category">
-        <h2>🧩 Puzzle & Strategy</h2>
-        <div class="game-list">
-            <a href="https://www.crazygames.com/game/bloons-tower-defense" target="_blank">🎈 Bloons TD - Tower defense</a>
-            <a href="https://www.crazygames.com/game/kingdom-rush" target="_blank">👑 Kingdom Rush - TD strategy</a>
-            <a href="https://www.crazygames.com/game/cut-the-rope" target="_blank">✂️ Cut the Rope - Physics puzzles</a>
-            <a href="https://www.crazygames.com/game/where-is-my-water" target="_blank">💧 Where's My Water - Fluid puzzles</a>
-            <a href="https://www.crazygames.com/game/plants-vs-zombies" target="_blank">🌱 Plants vs Zombies - TD strategy</a>
-            <a href="https://www.crazygames.com/game/worlds-hardest-game" target="_blank">😤 World's Hardest Game - Precision puzzle</a>
-        </div>
-    </div>
-
-    <div class="note">
-        💡 Tip: Bookmark this page! New games added regularly.<br>
-        🎮 Click any game to play. Most open in a new tab.<br>
-        🔥 Over 100+ games available across all categories.
-    </div>
+        renderGameCards(games);
+    </script>
 </body>
-    </html>
+</html>
